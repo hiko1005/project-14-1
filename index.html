@@ -22,7 +22,7 @@
             <input type="text" required placeholder="label" class="form-label"  v-model="label">
         </div>
         <div class="m-3">
-            <input type="url" required placeholder="url" class="form-url" v-model="site_url">
+            <input type="url" required placeholder="url" class="form-url" v-model="site_url" pattern="(?:https?:\/\/)?(?:[\w\.]+)\.(?:[a-z]{2,6}\.?)(?:\/[\w\.]*)*\/?">
         </div>
         <div class="m-3">
             <textarea name="" id="" cols="30" rows="10" placeholder="description" class="from-label" v-model="description"></textarea>
@@ -40,7 +40,7 @@
             <input type="checkbox" name="checkbox-inversive-condition" required class="form-check-input" v-model="inversive_condition"> <label for="checkbox-inversive-condition">Inversive condition</label>
         </div>
         <div class="m-3">
-            <input type="text" required placeholder="* * * * *" class="form-label" v-model="cron_schedule">
+            <input type="text" required placeholder="*m *h *d *w *m" class="form-label" v-model="cron_schedule">
         </div>
         <div class="m-3">
         <label for="select-bot">Select bot</label>
@@ -48,7 +48,7 @@
 
         </select>
     </div>
-    <input type="button" @click.prevent="submitForm">
+    <input type="button" @click.prevent="submitForm" value="Submit" class="btn btn-success m-3">
     </form>
 </body>
 </html>

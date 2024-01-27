@@ -16,7 +16,21 @@ const app = createApp({
     },
     methods: {
         submitForm() {
-             
+            let result = true
+            result = result && this.label!=null && this.label!=' ' && this.label.length>3
+            if(!this.site_url.match(/(?:https?:\/\/)?(?:[\w\.]+)\.(?:[a-z]{2,6}\.?)(?:\/[\w\.]*)*\/?/))
+            result = false
+            result = result && this.description!=null && this.description.length <= 255 && this.description!=' '
+            if(!this.expected_code.match(/([0-5][0-9][0-9]){1,}/))
+            result = false
+            result = result && this.cron_shedule!=null && this.cron_shedule!=' ' && this.cron_shedule.length >=9
+            result = result && this.select_bot!=null
+
+            if(!result)
+            alert('Try again, you wrote something wrong')
+            else {
+                location.reload()
+            }
         }
     }
 })
